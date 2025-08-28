@@ -670,7 +670,65 @@
                     
                     <div class="button-group">
                         <a href="#booking" class="btn scroll-btn">Забронировать стол</a>
-                        <a href="underground-club.html" class="btn btn-outline">Подробнее</a>
+                        <a href="#club-details" class="btn btn-outline">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Детали Underground Club -->
+    <section id="club-details" class="menu" style="background: rgba(15, 15, 25, 0.9);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Меню Underground Club</h2>
+                <p>Попробуйте наши авторские коктейли и закуски</p>
+            </div>
+            
+            <div class="menu-categories" style="display: flex; justify-content: center; margin-bottom: 40px; flex-wrap: wrap;">
+                <button class="menu-category-btn active">Коктейли</button>
+                <button class="menu-category-btn">Крафтовое пиво</button>
+                <button class="menu-category-btn">Закуски</button>
+                <button class="menu-category-btn">Десерты</button>
+            </div>
+            
+            <div class="menu-items" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                <div class="menu-item" style="background: rgba(30, 30, 46, 0.8); border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.4); display: flex; transition: transform 0.3s;">
+                    <div class="menu-item-img" style="width: 100px; height: 100px; overflow: hidden; flex-shrink: 0;">
+                        <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80" alt="Коктейль" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="menu-item-info" style="padding: 15px; flex-grow: 1;">
+                        <div class="menu-item-title" style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span class="menu-item-name" style="font-weight: bold; color: #fff;">Rhythm Martini</span>
+                            <span class="menu-item-price" style="color: #e94560; font-weight: bold;">450 ₽</span>
+                        </div>
+                        <p class="menu-item-desc" style="color: #a0a0a0; font-size: 14px;">Джин, вермут, ликер маракуйи, апельсиновый биттер</p>
+                    </div>
+                </div>
+                
+                <div class="menu-item" style="background: rgba(30, 30, 46, 0.8); border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.4); display: flex; transition: transform 0.3s;">
+                    <div class="menu-item-img" style="width: 100px; height: 100px; overflow: hidden; flex-shrink: 0;">
+                        <img src="https://images.unsplash.com/photo-1551538827-9c037cb4f32a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwa90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80" alt="Коктейль" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="menu-item-info" style="padding: 15px; flex-grow: 1;">
+                        <div class="menu-item-title" style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span class="menu-item-name" style="font-weight: bold; color: #fff;">Blues Mojito</span>
+                            <span class="menu-item-price" style="color: #e94560; font-weight: bold;">390 ₽</span>
+                        </div>
+                        <p class="menu-item-desc" style="color: #a0a0a0; font-size: 14px;">Белый ром, содовая, лайм, мята, сахарный сироп, черника</p>
+                    </div>
+                </div>
+                
+                <div class="menu-item" style="background: rgba(30, 30, 46, 0.8); border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.4); display: flex; transition: transform 0.3s;">
+                    <div class="menu-item-img" style="width: 100px; height: 100px; overflow: hidden; flex-shrink: 0;">
+                        <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80" alt="Коктейль" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="menu-item-info" style="padding: 15px; flex-grow: 1;">
+                        <div class="menu-item-title" style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span class="menu-item-name" style="font-weight: bold; color: #fff;">Jazz Negroni</span>
+                            <span class="menu-item-price" style="color: #e94560; font-weight: bold;">480 ₽</span>
+                        </div>
+                        <p class="menu-item-desc" style="color: #a0a0a0; font-size: 14px;">Джин, кампари, красный вермут, апельсиновая цедра</p>
                     </div>
                 </div>
             </div>
@@ -780,6 +838,14 @@
                         behavior: 'smooth'
                     });
                 }
+            });
+        });
+
+        // Переключение категорий меню
+        document.querySelectorAll('.menu-category-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelector('.menu-category-btn.active').classList.remove('active');
+                this.classList.add('active');
             });
         });
     </script>
