@@ -415,6 +415,103 @@
             border-color: #e94560;
         }
         
+        /* Меню бара */
+        .menu {
+            background: rgba(15, 15, 25, 0.9);
+            border-top: 1px solid #2a2a3a;
+            border-bottom: 1px solid #2a2a3a;
+        }
+        
+        .menu-categories {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .menu-category-btn {
+            background: rgba(40, 40, 60, 0.7);
+            border: none;
+            color: #a0a0a0;
+            padding: 12px 25px;
+            margin: 0 10px 10px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .menu-category-btn.active, .menu-category-btn:hover {
+            background: #e94560;
+            color: white;
+        }
+        
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .menu-item {
+            background: rgba(30, 30, 46, 0.8);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            display: flex;
+            transition: transform 0.3s;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .menu-item-img {
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        
+        .menu-item-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .menu-item-info {
+            padding: 15px;
+            flex-grow: 1;
+        }
+        
+        .menu-item-title {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        
+        .menu-item-name {
+            font-weight: bold;
+            color: #fff;
+        }
+        
+        .menu-item-price {
+            color: #e94560;
+            font-weight: bold;
+        }
+        
+        .menu-item-desc {
+            color: #a0a0a0;
+            font-size: 14px;
+        }
+        
+        .menu-category-content {
+            display: none;
+        }
+        
+        .menu-category-content.active {
+            display: grid;
+        }
+        
         /* Футер */
         footer {
             background: #0c0c14;
@@ -512,6 +609,16 @@
                 margin: 10px 0;
                 width: 100%;
             }
+            
+            .menu-categories {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .menu-category-btn {
+                margin: 5px 0;
+                width: 200px;
+            }
         }
     </style>
 </head>
@@ -525,6 +632,7 @@
                     <li><a href="#services">Услуги</a></li>
                     <li><a href="#events">Мероприятия</a></li>
                     <li><a href="#club">Наш клуб</a></li>
+                    <li><a href="#club-menu">Меню</a></li>
                     <li><a href="#booking">Запись</a></li>
                     <li><a href="#contacts">Контакты</a></li>
                 </ul>
@@ -670,65 +778,200 @@
                     
                     <div class="button-group">
                         <a href="#booking" class="btn scroll-btn">Забронировать стол</a>
-                        <a href="#club-details" class="btn btn-outline">Подробнее</a>
+                        <a href="#club-menu" class="btn btn-outline">Меню</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Детали Underground Club -->
-    <section id="club-details" class="menu" style="background: rgba(15, 15, 25, 0.9);">
+    <!-- Меню Underground Club -->
+    <section id="club-menu" class="menu">
         <div class="container">
             <div class="section-title">
                 <h2>Меню Underground Club</h2>
                 <p>Попробуйте наши авторские коктейли и закуски</p>
             </div>
             
-            <div class="menu-categories" style="display: flex; justify-content: center; margin-bottom: 40px; flex-wrap: wrap;">
-                <button class="menu-category-btn active">Коктейли</button>
-                <button class="menu-category-btn">Крафтовое пиво</button>
-                <button class="menu-category-btn">Закуски</button>
-                <button class="menu-category-btn">Десерты</button>
+            <div class="menu-categories">
+                <button class="menu-category-btn active" data-category="cocktails">Коктейли</button>
+                <button class="menu-category-btn" data-category="beer">Крафтовое пиво</button>
+                <button class="menu-category-btn" data-category="snacks">Закуски</button>
+                <button class="menu-category-btn" data-category="desserts">Десерты</button>
             </div>
             
-            <div class="menu-items" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-                <div class="menu-item" style="background: rgba(30, 30, 46, 0.8); border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.4); display: flex; transition: transform 0.3s;">
-                    <div class="menu-item-img" style="width: 100px; height: 100px; overflow: hidden; flex-shrink: 0;">
-                        <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80" alt="Коктейль" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="menu-item-info" style="padding: 15px; flex-grow: 1;">
-                        <div class="menu-item-title" style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-                            <span class="menu-item-name" style="font-weight: bold; color: #fff;">Rhythm Martini</span>
-                            <span class="menu-item-price" style="color: #e94560; font-weight: bold;">450 ₽</span>
+            <!-- Коктейли -->
+            <div class="menu-category-content active" id="cocktails">
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <div class="menu-item-img">
+                            <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80" alt="Коктейль">
                         </div>
-                        <p class="menu-item-desc" style="color: #a0a0a0; font-size: 14px;">Джин, вермут, ликер маракуйи, апельсиновый биттер</p>
+                        <div class="menu-item-info">
+                            <div class="menu-item-title">
+                                <span class="menu-item-name">Rhythm Martini</span>
+                                <span class="menu-item-price">450 ₽</span>
+                            </div>
+                            <p class="menu-item-desc">Джин, вермут, ликер маракуйи, апельсиновый биттер</p>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-img">
+                            <img src="https://images.unsplash.com/photo-1551538827-9c037cb4f32a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80" alt="Коктейль">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-title">
+                                <span class="menu-item-name">Blues Mojito</span>
+                                <span class="menu-item-price">390 ₽</span>
+                            </div>
+                            <p class="menu-item-desc">Белый ром, содовая, лайм, мята, сахарный сироп, черника</p>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-img">
+                            <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80" alt="Коктейль">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-title">
+                                <span class="menu-item-name">Jazz Negroni</span>
+                                <span class="menu-item-price">480 ₽</span>
+                            </div>
+                            <p class="menu-item-desc">Джин, кампари, красный вермут, апельсиновая цедра</p>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="menu-item" style="background: rgba(30, 30, 46, 0.8); border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.4); display: flex; transition: transform 0.3s;">
-                    <div class="menu-item-img" style="width: 100px; height: 100px; overflow: hidden; flex-shrink: 0;">
-                        <img src="https://images.unsplash.com/photo-1551538827-9c037cb4f32a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwa90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80" alt="Коктейль" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="menu-item-info" style="padding: 15px; flex-grow: 1;">
-                        <div class="menu-item-title" style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-                            <span class="menu-item-name" style="font-weight: bold; color: #fff;">Blues Mojito</span>
-                            <span class="menu-item-price" style="color: #e94560; font-weight: bold;">390 ₽</span>
+            </div>
+            
+            <!-- Крафтовое пиво -->
+            <div class="menu-category-content" id="beer">
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <div class="menu-item-img">
+                            <img src="https://images.unsplash.com/photo-1572116466495-6a3b8e5f1553?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80" alt="Пиво">
                         </div>
-                        <p class="menu-item-desc" style="color: #a0a0a0; font-size: 14px;">Белый ром, содовая, лайм, мята, сахарный сироп, черника</p>
+                        <div class="menu-item-info">
+                            <div class="menu-item-title">
+                                <span class="menu-item-name">Rock IPA</span>
+                                <span class="menu-item-price">320 ₽</span>
+                            </div>
+                            <p class="menu-item-desc">Крафтовое IPA с цитрусовыми нотами и горьковатым послевкусием</p>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-img">
+                            <img src="https://images.unsplash.com/photo-1596802232847-c0e1a4f5b261?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80" alt="Пиво">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-title">
+                                <span class="menu-item-name">Underground Stout</span>
+                                <span class="menu-item-price">350 ₽</span>
+                            </div>
+                            <p class="menu-item-desc">Темный стаут с нотами кофе и шоколада</p>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-img">
+                            <img src="https://images.unsplash.com/photo-1587000754481-10cecb8c8e5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80" alt="Пиво">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-title">
+                                <span class="menu-item-name">Amber Ale</span>
+                                <span class="menu-item-price">300 ₽</span>
+                            </div>
+                            <p class="menu-item-desc">Амбер эль с карамельным вкусом и умеренной горчинкой</p>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="menu-item" style="background: rgba(30, 30, 46, 0.8); border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.4); display: flex; transition: transform 0.3s;">
-                    <div class="menu-item-img" style="width: 100px; height: 100px; overflow: hidden; flex-shrink: 0;">
-                        <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80" alt="Коктейль" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="menu-item-info" style="padding: 15px; flex-grow: 1;">
-                        <div class="menu-item-title" style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-                            <span class="menu-item-name" style="font-weight: bold; color: #fff;">Jazz Negroni</span>
-                            <span class="menu-item-price" style="color: #e94560; font-weight: bold;">480 ₽</span>
+            </div>
+            
+            <!-- Закуски -->
+            <div class="menu-category-content" id="snacks">
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <div class="menu-item-img">
+                            <img src="https://images.unsplash.com/photo-1551615593-ef5fe247e8f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80" alt="Закуска">
                         </div>
-                        <p class="menu-item-desc" style="color: #a0a0a0; font-size: 14px;">Джин, кампари, красный вермут, апельсиновая цедра</p>
+                        <div class="menu-item-info">
+                            <div class="menu-item-title">
+                                <span class="menu-item-name">Брускетты</span>
+                                <span class="menu-item-price">290 ₽</span>
+                            </div>
+                            <p class="menu-item-desc">С авокадо и креветками, с томатами и моцареллой, с паштетом</p>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-img">
+                            <img src="https://images.unsplash.com/photo-1605524053125-9edf6b1c731d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80" alt="Закуска">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-title">
+                                <span class="menu-item-name">Начос</span>
+                                <span class="menu-item-price">420 ₽</span>
+                            </div>
+                            <p class="menu-item-desc">Хрустящие начос с сыром, гуакамоле, сметаной и сальсой</p>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-img">
+                            <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80" alt="Закуска">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-title">
+                                <span class="menu-item-name">Картофельные дольки</span>
+                                <span class="menu-item-price">280 ₽</span>
+                            </div>
+                            <p class="menu-item-desc">Запеченные картофельные дольки с соусами на выбор</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Десерты -->
+            <div class="menu-category-content" id="desserts">
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <div class="menu-item-img">
+                            <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80" alt="Десерт">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-title">
+                                <span class="menu-item-name">Чизкейк</span>
+                                <span class="menu-item-price">350 ₽</span>
+                            </div>
+                            <p class="menu-item-desc">Нью-йоркский чизкейк с ягодным соусом</p>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-img">
+                            <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80" alt="Десерт">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-title">
+                                <span class="menu-item-name">Тирамису</span>
+                                <span class="menu-item-price">320 ₽</span>
+                            </div>
+                            <p class="menu-item-desc">Классический тирамису с маскарпоне и кофейным пропиткой</p>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-img">
+                            <img src="https://images.unsplash.com/photo-1623334044303-241021148842?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80" alt="Десерт">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-title">
+                                <span class="menu-item-name">Брауни</span>
+                                <span class="menu-item-price">300 ₽</span>
+                            </div>
+                            <p class="menu-item-desc">Шоколадный брауни с мороженым и карамельным соусом</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -844,8 +1087,22 @@
         // Переключение категорий меню
         document.querySelectorAll('.menu-category-btn').forEach(button => {
             button.addEventListener('click', function() {
-                document.querySelector('.menu-category-btn.active').classList.remove('active');
+                // Убираем активный класс у всех кнопок
+                document.querySelectorAll('.menu-category-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Добавляем активный класс текущей кнопке
                 this.classList.add('active');
+                
+                // Скрываем все категории меню
+                document.querySelectorAll('.menu-category-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Показываем выбранную категорию
+                const categoryId = this.getAttribute('data-category');
+                document.getElementById(categoryId).classList.add('active');
             });
         });
     </script>
