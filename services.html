@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Услуги - MusicRoom</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #0f0f14;
+            color: #f5f5f5;
+            line-height: 1.6;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), 
+                              url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Шапка сайта */
+        header {
+            background: linear-gradient(to right, #1a1a2e, #16213e);
+            color: white;
+            padding: 20px 0;
+            position: relative;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.7);
+        }
+        
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: #e94560;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: #f5f5f5;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            font-size: 36px;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 25px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 17px;
+        }
+        
+        .nav-links a:hover {
+            color: #e94560;
+        }
+        
+        /* Секции */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        
+        .section-title p {
+            color: #a0a0a0;
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 18px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: #e94560;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Услуги */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .service-card {
+            background: rgba(30, 30, 46, 0.8);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            transition: transform 0.3s;
+            text-align: center;
+            padding: 30px;
+            border-bottom: 4px solid #e94560;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            font-size: 50px;
+            color: #e94560;
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            margin-bottom: 15px;
+            color: #fff;
+            font-size: 24px;
+        }
+        
+        .service-card p {
+            color: #a0a0a0;
+            margin-bottom: 20px;
+        }
+        
+        .service-card ul {
+            text-align: left;
+            color: #a0a0a0;
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        
+        .service-card li {
+            margin-bottom: 8px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #e94560;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            cursor: pointer;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(233, 69, 96, 0.4);
+        }
+        
+        .btn:hover {
+            background: #ff1a40;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(233, 69, 96, 0.6);
+        }
+        
+        /* Футер */
+        footer {
+            background: #0c0c14;
+            color: white;
+            padding: 60px 0 30px;
+            text-align: center;
+            border-top: 1px solid #2a2a3a;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: #e94560;
+            font-size: 22px;
+        }
+        
+        .footer-section p {
+            color: #a0a0a0;
+            margin-bottom: 10px;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 45px;
+            height: 45px;
+            background: #2a2a3a;
+            color: white;
+            font-size: 20px;
+            margin: 0 10px;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background: #e94560;
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #2a2a3a;
+            color: #a0a0a0;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #e94560;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .back-link:hover {
+            color: #ff1a40;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo"><i class="fas fa-music"></i>Music<span>Room</span></div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="teachers.html">Преподаватели</a></li>
+                    <li><a href="gallery.html">Галерея</a></li>
+                    <li><a href="underground-club.html">Underground Club</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Услуги -->
+    <section class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Наши услуги</h2>
+                <p>Мы предлагаем широкий спектр музыкальных услуг для начинающих и профессиональных музыкантов</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-drum"></i>
+                    </div>
+                    <h3>Уроки игры на барабанах</h3>
+                    <p>Профессиональное обучение игре на ударных для любого уровня подготовки.</p>
+                    <ul>
+                        <li>Индивидуальный подход к каждому ученику</li>
+                        <li>Освоение различных стилей и техник</li>
+                        <li>Работа с метрономом и развитие чувства ритма</li>
+                        <li>Подготовка к выступлениям и записи</li>
+                    </ul>
+                    <a href="index.html" class="btn">Записаться</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-guitar"></i>
+                    </div>
+                    <h3>Обучение игре на гитаре</h3>
+                    <p>Курсы игры на акустической и электрогитаре для любого уровня.</p>
+                    <ul>
+                        <li>Постановка рук и основы звукоизвлечения</li>
+                        <li>Изучение аккордов, гамм и техник игры</li>
+                        <li>Освоение импровизации и создания собственных партий</li>
+                        <li>Подбор и разбор популярных композиций</li>
+                    </ul>
+                    <a href="index.html" class="btn">Записаться</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <h3>Вокальные занятия</h3>
+                    <p>Поставьте голос с профессиональными преподавателями.</p>
+                    <ul>
+                        <li>Постановка дыхания и развитие диафрагмы</li>
+                        <li>Расширение диапазона и силы голоса</li>
+                        <li>Работа с тембром и артикуляцией</li>
+                        <li>Подготовка к выступлениям и студийной записи</li>
+                    </ul>
+                    <a href="index.html" class="btn">Записаться</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-sliders-h"></i>
+                    </div>
+                    <h3>Студийная запись</h3>
+                    <p>Профессиональная запись и сведение ваших треков.</p>
+                    <ul>
+                        <li>Запись вокала и инструментов</li>
+                        <li>Сведение и мастеринг треков</li>
+                        <li>Аранжировка и продюсирование</li>
+                        <li>Запись демо-записей и портфолио</li>
+                    </ul>
+                    <a href="index.html" class="btn">Записаться</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Репетиционная база</h3>
+                    <p>Комфортные помещения для репетиций вашей группы.</p>
+                    <ul>
+                        <li>Полностью оборудованные помещения</li>
+                        <li>Профессиональная аппаратура</li>
+                        <li>Гибкая система аренды</li>
+                        <li>Возможность записи репетиций</li>
+                    </ul>
+                    <a href="index.html" class="btn">Забронировать</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3>Организация мероприятий</h3>
+                    <p>Помощь в организации концертов и музыкальных событий.</p>
+                    <ul>
+                        <li>Организация концертов и выступлений</li>
+                        <li>Продвижение музыкальных проектов</li>
+                        <li>Техническое обеспечение мероприятий</li>
+                        <li>Фото- и видеосъемка выступлений</li>
+                    </ul>
+                    <a href="index.html" class="btn">Узнать больше</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <p><i class="fas fa-phone"></i> 8 960 888 92 22</p>
+                    <p><i class="fas fa-map-marker-alt"></i> ул. Оломоуцкая, 36</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Часы работы</h3>
+                    <p>Пн-Пт: 10:00 - 22:00</p>
+                    <p>Сб-Вс: 12:00 - 20:00</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Социальные сети</h3>
+                    <div class="social-icons">
+                        <a href="https://vk.com/music_room_vlz" target="_blank"><i class="fab fa-vk"></i></a>
+                        <a href="https://t.me/undergroundrockbar" target="_blank"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 MusicRoom. Все права защищены.</p>
+                <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Вернуться на главную</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
